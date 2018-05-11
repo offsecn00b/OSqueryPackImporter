@@ -209,15 +209,16 @@ func createQuery(name, query, description string) (uint, error) {
 	var responseBody createQueryResponse
 	err = json.NewDecoder(response.Body).Decode(&responseBody)
 	// HTTP.StatusCode 409 is returned when the create query api call doesn't execute because there is already a record under that query name
-	// So we must call a new function "getQuery" by passing the query name, to do a lookup by name and return the query ID that already exists and return that ID so the query can be added to the pack
+	// So we must call a new function "getQuery" by passing the query name, to do a lookup by name and return the query ID that already exists
+        // and return that ID so the query can be added to the pack
 	if thiscode == "409" {
 		fmt.Println("[+] We can't add this query name because it already exists....")
 		fmt.Println("[+] Attempting to enumerate the Query ID by Name.....")
-		testID, err := getQuery(name)
+		queryID, err := getQuery(name)
 		if err != nil {
 			return 0, errors.New("Error retrieving Existing query ID:" + err.Error())
 		}
-		return testID, nil
+		return queryID, nil
 	}
 
 	if err != nil {
