@@ -1,13 +1,15 @@
 #5/11/2018
 I decided to update this code to fix a problem where an existing query would error out and not be added to the pack. This revision catches the 409 http.statusCode
 and performs a api call to get all the queries in the db, it then iterates through the json query objects until it finds a match for the name of the existing query
-it then returns that existing query's Query ID so tha tthe script can continue to add the existing query to the pack. For our testing we used the Palantir OSquery 
+it then returns that existing query's Query ID so that the script can continue to add the existing query to the pack. For our testing we used the Palantir OSquery 
 packs as the bulk import files. 
 
 WARNING: THIS script must be run from the directory which contains the packs but the code itself cannot be in the packs directory. 
+
 WARNING: Also I never used GOLANG before this so the efficacy of this patch is not under any kind of warranty
 
 Original Code: https://gist.github.com/marpaia/9e061f81fa60b2825f4b6bb8e0cd2c77
+
 Palantir Packs used for testing: https://github.com/palantir/osquery-configuration/tree/master/Endpoints/packs 
 
 #################################################################################################################################################################
