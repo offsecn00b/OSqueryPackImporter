@@ -6,6 +6,9 @@ packs as the bulk import files.
 
 WARNING: THIS script must be run from the directory which contains the packs but the code itself cannot be in the packs directory. 
 
+Example : offsecn00b[/etc/osquery/packs]# go run ../import.go --hostname https://localhost:8888 -token eyJhb
+
+
 WARNING: Also I never used GOLANG before this so the efficacy of this patch is not under any kind of warranty
 
 Original Code: https://gist.github.com/marpaia/9e061f81fa60b2825f4b6bb8e0cd2c77
